@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const SearchBox = () => {
+const SearchBox = ({ filter, onFilter }) => {
   return (
-    <div>SearchBox</div>
-  )
-}
+    <div>
+      <input
+        type="text"
+        value={filter}
+        onChange={(evt) => {
+          return onFilter(evt.target.value);
+        }}
+      />
+    </div>
+  );
+};
 
-export default SearchBox
+export default SearchBox;
