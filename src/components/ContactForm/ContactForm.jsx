@@ -35,11 +35,11 @@ const ContactForm = ({ onAddContact }) => {
     >
       <Form className={css.contactForm}>
         <label htmlFor={nameId}>Name</label>
-        <Field type="text" name="name" id={nameId} />
-        <ErrorMessage name="name" component="span" />
+        <Field type="text" name="name" id={nameId} className={css.contactInput}/>
+        <ErrorMessage name="name" component="span" className={css.errorMessage} />
         <label htmlFor={numberId}>Number</label>
-        <Field type="text" name="number" id={numberId} />
-        <ErrorMessage name="number" component="span" />
+        <Field type="text" name="number" id={numberId} className={css.contactInput}/>
+        <ErrorMessage name="number" component="span" className={css.errorMessage}/>
         <button type="submit" className={css.AddContactBtn}>
           Add contact
         </button>

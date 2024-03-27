@@ -8,7 +8,14 @@ import { nanoid } from "nanoid";
 
 function App() {
   const [filter, setFilter] = useState("");
-  const [contacts, setContacts] = useState(initialcContacts);
+  const [contacts, setContacts] = useState(() => {
+    const stringifiedContacts = localStorage.getItem("contacts");
+    if (!stringifiedContacts) {
+      return initialcContacts;
+    } else {
+      return JSON.parse(stringifiedContacts);
+    }
+  });
   const filteredContacts = contacts.filter((contact) => {
     return (
       contact.name.toLowerCase().includes(filter.toLowerCase()) ||
