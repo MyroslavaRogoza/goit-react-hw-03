@@ -1,5 +1,4 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { nanoid } from "nanoid";
 import { useId } from "react";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
@@ -23,7 +22,6 @@ const ContactForm = ({ onAddContact }) => {
     actions.resetForm();
   };
   const FormInitialValues = {
-    id: nanoid(),
     name: "",
     number: "",
   };
@@ -40,7 +38,7 @@ const ContactForm = ({ onAddContact }) => {
         <Field type="text" name="name" id={nameId} />
         <ErrorMessage name="name" component="span" />
         <label htmlFor={numberId}>Number</label>
-        <Field type="number" name="number" id={numberId} />
+        <Field type="text" name="number" id={numberId} />
         <ErrorMessage name="number" component="span" />
         <button type="submit" className={css.AddContactBtn}>
           Add contact
